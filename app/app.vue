@@ -2,51 +2,15 @@
 useHead({
   link: [{ rel: 'icon', type: 'image/png', href: '/favicon.ico' }],
 })
-
-const head = useLocaleHead({
-  addDirAttribute: true,
-  identifierAttribute: 'id',
-  addSeoAttributes: true,
-})
 </script>
 
 <template>
-  <Html
-    :dir="head.htmlAttrs.dir"
-    :lang="head.htmlAttrs.lang"
-  >
-    <Head>
-      <template
-        v-for="link in head.link"
-        :key="link.id"
-      >
-        <Link
-          :id="link.id"
-          :href="link.href"
-          :hreflang="link.hreflang"
-          :rel="link.rel"
-        />
-      </template>
-      <template
-        v-for="meta in head.meta"
-        :key="meta.id"
-      >
-        <Meta
-          :id="meta.id"
-          :content="meta.content"
-          :property="meta.property"
-        />
-      </template>
-    </Head>
-    <Body>
-      <div>
-        <NuxtLoadingIndicator color="#808080" />
-        <UContainer>
-          <NuxtPage />
-        </UContainer>
-      </div>
-    </Body>
-  </Html>
+  <div>
+    <NuxtLoadingIndicator color="#808080" />
+    <UContainer>
+      <NuxtPage />
+    </UContainer>
+  </div>
 </template>
 
 <style>

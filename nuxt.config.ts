@@ -20,16 +20,11 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxthq/studio',
     '@nuxt/image',
-    '@nuxtjs/i18n',
-    '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
-    'nuxt-auth-utils',
   ],
 
   // Nuxt Hub
   hub: {
     cache: true,
-    kv: true,
     database: true,
     analytics: true,
   },
@@ -53,24 +48,6 @@ export default defineNuxtConfig({
     timeline: { enabled: true },
   },
 
-  // Nuxt I18N
-  i18n: {
-    strategy: 'no_prefix',
-    locales: [
-      {
-        code: 'en',
-        iso: 'en-EN',
-        icon: 'i-twemoji-flag-united-kingdom',
-      },
-      {
-        code: 'fr',
-        iso: 'fr-FR',
-        icon: 'i-twemoji-flag-france',
-      },
-    ],
-    defaultLocale: 'en',
-  },
-
   // Nuxt Google Fonts
   googleFonts: {
     display: 'swap',
@@ -84,13 +61,6 @@ export default defineNuxtConfig({
   nitro: {
     experimental: {
       openAPI: true,
-    },
-  },
-
-  // Nuxt Env
-  runtimeConfig: {
-    public: {
-      test: '',
     },
   },
 

@@ -1,8 +1,17 @@
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 import { sql } from 'drizzle-orm'
 
-export const users = sqliteTable('users', {
+export const verbs = sqliteTable('verbs', {
   id: integer('id').primaryKey(),
-  name: text('name').default(''),
+  verb: text('verb').default(''),
+  translation: text('translation').default(''),
+  type: text('type', { enum: ['-ar', '-er', '-ir'] }),
+  createdAt: text('created_at').default(sql`(CURRENT_DATE)`),
+})
+
+export const words = sqliteTable('words', {
+  id: integer('id').primaryKey(),
+  word: text('word').default(''),
+  translation: text('translation').default(''),
   createdAt: text('created_at').default(sql`(CURRENT_DATE)`),
 })
