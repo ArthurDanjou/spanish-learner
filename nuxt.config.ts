@@ -1,25 +1,12 @@
 export default defineNuxtConfig({
   future: { compatibilityVersion: 4 },
 
-  // Nuxt App
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    head: {
-      templateParams: {
-        separator: '•',
-      },
-    },
-  },
-
   // Nuxt Modules
   modules: [
     '@nuxthub/core',
     '@nuxt/ui',
-    '@nuxt/content',
     '@vueuse/nuxt',
     '@nuxtjs/google-fonts',
-    '@nuxthq/studio',
-    '@nuxt/image',
   ],
 
   // Nuxt Hub
@@ -29,17 +16,10 @@ export default defineNuxtConfig({
     analytics: true,
   },
 
-  // Nuxt Content
-  content: {
-    highlight: {
-      theme: 'github-dark',
-    },
-  },
-
   // Nuxt Color Mode
   colorMode: {
-    preference: 'system',
-    fallback: 'light',
+    preference: 'dark',
+    fallback: 'dark',
   },
 
   // Nuxt Devtools
@@ -52,7 +32,6 @@ export default defineNuxtConfig({
   googleFonts: {
     display: 'swap',
     families: {
-      'Inter': [400, 500, 600, 700, 800, 900],
       'DM Sans': [400, 500, 600, 700, 800, 900],
     },
   },
@@ -64,5 +43,5 @@ export default defineNuxtConfig({
     },
   },
 
-  compatibilityDate: '2024-07-23',
+  compatibilityDate: '2024-07-08',
 })
