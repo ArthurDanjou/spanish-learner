@@ -26,8 +26,8 @@ async function revealWord() {
   <div>
     <NuxtLoadingIndicator />
     <UContainer>
-      <div class="bg-neutral-800 rounded-lg max-h-[96vh] h-[96vh] overflow-scroll">
-        <div v-if="verb" class="space-y-4 h-1/2 w-2/3 mx-auto flex flex-col justify-center">
+      <div class="bg-neutral-800 rounded-lg max-h-[96vh] h-[96vh] overflow-scroll p-4">
+        <div v-if="verb" class="space-y-4 mx-auto flex flex-col justify-center">
           <div class="flex gap-2 items-end">
             <h3 class="text-xl text-neutral-500">
               Verbos:
@@ -55,13 +55,13 @@ async function revealWord() {
           <UButton
             color="blue"
             variant="solid"
-            label="Refresh"
+            label="Reveal Verb"
             :block="true"
             @click.prevent="revealVerb()"
           />
         </div>
         <UDivider class="mt-8 mb-4" label="Palabras" />
-        <div v-if="word" class="space-y-4 h-1/2 w-2/3 mx-auto flex flex-col justify-center">
+        <div v-if="word" class="space-y-4 mx-auto flex flex-col justify-center">
           <div class="flex gap-2 items-end">
             <h3 class="text-xl text-neutral-500">
               Palabra:
@@ -72,16 +72,24 @@ async function revealWord() {
           </div>
           <div class="flex gap-2 items-end">
             <h3 class="text-xl text-neutral-500">
-              Tradución:
+              Typo:
             </h3>
             <h1 class="text-3xl font-bold">
+              {{ word.type }}
+            </h1>
+          </div>
+          <div class="flex gap-2 items-end">
+            <h3 class="text-xl text-neutral-500">
+              Tradución:
+            </h3>
+            <h1 class="text-3xl font-bold" :class="revealedWord ? '' : 'bg-black text-black'">
               {{ word.translation }}
             </h1>
           </div>
           <UButton
             color="red"
             variant="solid"
-            label="Refresh"
+            label="Reveal Word"
             :block="true"
             @click.prevent="revealWord()"
           />
