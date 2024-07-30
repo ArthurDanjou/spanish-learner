@@ -6,19 +6,19 @@ useHead({
   title: 'Spanish Learning Process • By Arthur Danjou',
 })
 
-const { data: verb, refresh: refreshVerb } = await useAsyncData('verb', async () => $fetch('/api/verb'))
-const { data: word, refresh: refreshWord } = await useAsyncData('word', async () => $fetch('/api/word'))
+const { data: verb, refresh: refreshVerbData } = await useAsyncData('verb', async () => $fetch('/api/verb'))
+const { data: word, refresh: refreshWordData } = await useAsyncData('word', async () => $fetch('/api/word'))
 
 const revealedVerb = ref(false)
-async function revealVerb() {
+async function refreshVerb() {
   revealedVerb.value = false
-  await refreshVerb()
+  await refreshVerbData()
 }
 
 const revealedWord = ref(false)
-async function revealWord() {
+async function refreshWord() {
   revealedWord.value = false
-  await refreshWord()
+  await refreshWordData()
 }
 </script>
 
@@ -46,18 +46,18 @@ async function revealWord() {
           </div>
           <div class="flex gap-2 items-end cursor-pointer" @click.prevent="revealedVerb = true">
             <h3 class="text-xl text-neutral-500">
-              Traducion:
+              Traduccion:
             </h3>
-            <h1 class="text-3xl font-bold" :class="revealedVerb ? '' : 'bg-black text-black'">
+            <h1 class="text-3xl font-bold" :class="revealedVerb ? 'duration-300' : 'bg-black text-black'">
               {{ verb.translation }}
             </h1>
           </div>
           <UButton
-            color="blue"
+            :color="revealedVerb ? 'green' : 'red'"
             variant="solid"
-            label="Reveal Verb"
+            :label="revealedVerb ? 'Change Verb' : 'Reveal Verb'"
             :block="true"
-            @click.prevent="revealVerb()"
+            @click.prevent="revealedVerb ? refreshVerb() : revealedVerb = true"
           />
         </div>
         <UDivider class="mt-8 mb-4" label="Palabras" />
@@ -78,20 +78,20 @@ async function revealWord() {
               {{ word.type }}
             </h1>
           </div>
-          <div class="flex gap-2 items-end">
+          <div class="flex gap-2 items-end cursor-pointer" @click.prevent="revealedWord = true">
             <h3 class="text-xl text-neutral-500">
-              Tradución:
+              Traducción:
             </h3>
-            <h1 class="text-3xl font-bold" :class="revealedWord ? '' : 'bg-black text-black'">
+            <h1 class="text-3xl font-bold" :class="revealedWord ? 'duration-300' : 'bg-black text-black'">
               {{ word.translation }}
             </h1>
           </div>
           <UButton
-            color="red"
+            :color="revealedWord ? 'green' : 'blue'"
             variant="solid"
-            label="Reveal Word"
+            :label="revealedWord ? 'Change Word' : 'Reveal Word'"
             :block="true"
-            @click.prevent="revealWord()"
+            @click.prevent="revealedWord ? refreshWord() : revealedWord = true"
           />
         </div>
         <UDivider class="mt-8 mb-4" label="Ser, Estar, Tener, Haber" />
