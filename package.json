@@ -21,6 +21,7 @@
     "drizzle-orm": "^0.32.1",
     "h3-zod": "^0.5.3",
     "nuxt": "^3.12.4",
+    "vue": "^3.4.35",
     "zod": "^3.23.8"
   },
   "devDependencies": {
