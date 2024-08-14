@@ -6,15 +6,19 @@ async function refreshVerb() {
   revealedVerb.value = false
   await refreshVerbData()
 }
+const mode = useCookie('mode')
 </script>
 
 <template>
   <div v-if="verb" class="space-y-4 mx-auto flex flex-col justify-center">
-    <div class="flex gap-2 items-end">
+    <div class="flex gap-2 items-center">
       <h3 class="text-neutral-500">
         Verbos:
       </h3>
-      <h1 class="font-bold">
+      <h1 v-if="mode === 'Spanish'" class="font-bold">
+        {{ verb.verb }}
+      </h1>
+      <h1 v-else class="font-bold p-1 rounded-md" :class="revealedVerb ? 'duration-300' : 'bg-gray-700 text-gray-700'">
         {{ verb.verb }}
       </h1>
     </div>
@@ -23,14 +27,17 @@ async function refreshVerb() {
         Typo:
       </h3>
       <h1 class="font-bold">
-        {{ verb.type }}
+        -{{ verb.verb.slice(-2) }}
       </h1>
     </div>
-    <div class="flex gap-2 items-end cursor-pointer" @click.prevent="revealedVerb = true">
+    <div class="flex gap-2 items-center">
       <h3 class="text-neutral-500">
         Traduccion:
       </h3>
-      <h1 class="font-bold" :class="revealedVerb ? 'duration-300' : 'bg-black text-black'">
+      <h1 v-if="mode === 'Spanish'" class="font-bold p-1 rounded-md" :class="revealedVerb ? 'duration-300' : 'bg-gray-700 text-gray-700'">
+        {{ verb.translation }}
+      </h1>
+      <h1 v-else class="font-bold">
         {{ verb.translation }}
       </h1>
     </div>
