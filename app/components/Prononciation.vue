@@ -59,10 +59,10 @@ const PrononciationRows = [
 </script>
 
 <template>
-  <UDivider class="mt-12 mb-8" size="lg" label="Prononciation" />
-  <UTable :rows="PrononciationRows" />
+  <UCard class="md:row-span-2 md:col-span-2">
+    <template #header>
+      <h1>Prononciation</h1>
+    </template>
+    <UTable :rows="PrononciationRows" />
+  </UCard>
 </template>
-
-<style scoped>
-
-</style>

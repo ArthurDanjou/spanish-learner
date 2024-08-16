@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     cache: true,
     database: true,
     analytics: true,
+    ai: true,
   },
 
   // Nuxt Color Mode

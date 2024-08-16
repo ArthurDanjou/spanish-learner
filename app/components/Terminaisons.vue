@@ -58,10 +58,10 @@ const VerbColumns = [
 </script>
 
 <template>
-  <UDivider class="mt-12 mb-8" size="lg" label="Terminaisons" />
-  <UTable :columns="VerbColumns" :rows="VerbRows" />
+  <UCard class="md:col-span-4 md:row-span-2">
+    <template #header>
+      <h1>Terminaisons</h1>
+    </template>
+    <UTable :columns="VerbColumns" :rows="VerbRows" />
+  </UCard>
 </template>
-
-<style scoped>
-
-</style>

@@ -59,10 +59,10 @@ const ModalRows = [
 </script>
 
 <template>
-  <UDivider class="mt-12 mb-8" size="lg" label="Ser, Estar, Tener, Haber" />
-  <UTable :columns="ModalColumns" :rows="ModalRows" />
+  <UCard class="md:col-span-2 md:row-span-2">
+    <template #header>
+      <h1>Modaux</h1>
+    </template>
+    <UTable :columns="ModalColumns" :rows="ModalRows" />
+  </UCard>
 </template>
-
-<style scoped>
-
-</style>

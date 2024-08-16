@@ -41,6 +41,10 @@ const rows = [
 </script>
 
 <template>
-  <UDivider class="mt-12 mb-8" size="lg" label="Démonstratifs" />
-  <UTable :rows="rows" :columns="columns" />
+  <UCard class="md:col-span-4">
+    <template #header>
+      <h1>Démonstratifs</h1>
+    </template>
+    <UTable :rows="rows" :columns="columns" />
+  </UCard>
 </template>

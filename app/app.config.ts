@@ -3,8 +3,13 @@ export default defineAppConfig({
     gray: 'neutral',
     primary: 'red',
     container: {
-      constrained: 'max-w-xl',
       padding: 'px-4 sm:px-6 lg:px-8 py-4',
+    },
+    card: {
+      background: 'bg-neutral-900',
+      header: {
+        base: 'uppercase font-bold tracking-widest text-white',
+      },
     },
   },
   icon: {

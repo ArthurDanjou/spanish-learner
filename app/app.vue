@@ -12,22 +12,22 @@ mode.value = mode.value || 'Spanish'
   <div>
     <NuxtLoadingIndicator />
     <UContainer>
-      <div class="my-4 flex items-center justify-between">
-        <p>Mode: {{ mode }}</p>
-        <UButton
-          :color="mode === 'Spanish' ? 'cyan' : 'yellow'"
-          variant="solid"
-          :label="mode === 'Spanish' ? 'Switch to French' : 'Switch to Spanish'"
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-4 auto-rows-max">
+        <UCard
+          class="order-first"
           @click="mode === 'Spanish' ? mode = 'French' : mode = 'Spanish'"
-        />
-      </div>
-      <div class="bg-neutral-900 rounded-lg max-h-[90vh] h-[90vh] overflow-scroll p-4">
+        >
+          <p class="text-lg font-bold uppercase" :class="mode === 'Spanish' ? 'text-red-500' : 'text-blue-500'">
+            Mode: {{ mode }}
+          </p>
+        </UCard>
+        <Translation />
         <Verbs />
         <Words />
-        <Demonstratifs />
         <Modals />
-        <Terminaisons />
+        <Demonstratifs />
         <Prononciation />
+        <Terminaisons />
       </div>
     </UContainer>
   </div>
